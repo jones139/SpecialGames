@@ -1,0 +1,16 @@
+SpecialGames
+============
+Some simple javascript/html games for my son, Benjamin, who is autistic
+and has learning difficulties.
+He seems quite interested in mobile electronic devices (nintendo DS, 
+my phone etc.) at the moment, so I want something that will run on
+a cheap tablet computer for him.
+The idea is that they will be colourful and move and make sounds.
+They should be configurable so if someone else likes the idea, but
+not the colour scheme etc. then they can change it easily.
+
+What is (or at least will be) included
+======================================
+
+Photo Viewer - simple slideshow
+Shapes - continually draws colurful shapes on the screen, with music.
