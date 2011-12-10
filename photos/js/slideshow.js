@@ -29,13 +29,26 @@ ss.isImg = function(nameObj) {
     return false;
 }
 
+ss.resizeImage = function() {
+    //alert("resizeImage()");
+    var width = jQuery('#photo').attr('naturalWidth');
+    var height = jQuery('#photo').attr('naturalHeight');
+    var x = jQuery('#photoDiv').width();
+    var maxy = 400;
+    //if (height * x / width <= maxy)
+    //alert("resizeImage - width="+width+", height="+height+", divWidth="+x);
+    
+}
 ss.changePhoto = function () {
     //alert("ss.photoNo = " + ss.photoNo + ", Image=" + ss.imgList[ss.photoNo]);
     ss.photoNo += 1;
     if (ss.photoNo >= ss.imgList.length) {
 	ss.photoNo = 0;
     }
-    jQuery('#photo').attr('src',ss.imgList[ss.photoNo]);
+    jQuery('#photo').slideUp('fast',function() {
+	jQuery('#photo').attr('src',ss.imgList[ss.photoNo]);
+	jQuery('#photo').slideDown('fast');
+    });
     
     ss.timeoutID = window.setTimeout(ss.changePhoto,ss.timeout);
 }
@@ -63,6 +76,7 @@ ss.initialise_slideshow = function() {
 	//alert("data="+data);
 	//alert(obj2str(ss.imgList));
 	if (ss.imgList.length > 0) {
+	    jQuery('#photo').load(ss.resizeImage);
 	    ss.startSlideshow();
 	} else {
 	    alert("Oh No - can't find any photos - giving up!");
