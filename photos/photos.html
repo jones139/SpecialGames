@@ -1,0 +1,26 @@
+<html>
+<head>
+    <link rel="stylesheet" href="css/photos.css" />
+</head>
+<body>
+  <div id="header">
+    <h1>Benjamin's Photos</h1>
+  <audio controls="controls">
+      <source src="sound/CountryClubRag.mp3" type="audio/mpeg" />
+      <source src="sound/CountryClubRag.ogg" type="audio/ogg" />
+  </audio>
+  </div>
+  <div id="photoDiv">
+    <img id="photo" src="" alt="Images will appear here">
+  </div>
+
+   <script src="js/jquery-1.4.2.min.js"></script>
+   <script src="js/slideshow.js"></script>
+    <script>
+      $(document).ready(function(){
+          ss.initialise_slideshow();
+      });
+    </script>
+
+</body>
+</html>

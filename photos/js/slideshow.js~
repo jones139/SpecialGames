@@ -1,0 +1,3 @@
+// slideshow.js
+// a very simple photo slideshow - looks for photos in the 'photos' directory
+// of the server.
