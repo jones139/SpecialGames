@@ -3,26 +3,31 @@
     <link rel="stylesheet" href="css/photos.css" />
 </head>
 <body>
-  <div id="header">
-    <h1>Benjamin's Photos</h1>
-    <video id="audioPlayer" loop>
-      <source src="sound/CountryClubRag.mp3" type="audio/mpeg" />
-      <source src="sound/CountryClubRag.ogg" type="audio/ogg" />
-    </video>
-    <button id="pauseButton">Pause</button>
-    <button id="muteButton">Mute</button>
+  <div data-role="page">
+    <div data-role="header">
+      <div id="header">
+	<h1>Benjamin's Photos</h1>
+	<video id="audioPlayer" loop>
+	  <source src="sound/CountryClubRag.mp3" type="audio/mpeg" />
+	  <source src="sound/CountryClubRag.ogg" type="audio/ogg" />
+	</video>
+	<button id="pauseButton">Pause</button>
+	<button id="muteButton">Mute</button>
+      </div>
+    </div>
+    <div data-role="content">
+      <div id="photoDiv">
+	<img id="photo" src="" alt="Images will appear here">
+      </div>
+    </div>
   </div>
-  <div id="photoDiv">
-    <img id="photo" src="" alt="Images will appear here">
-  </div>
-
-   <script src="js/jquery-1.4.2.min.js"></script>
-   <script src="js/slideshow.js"></script>
-    <script>
+  <script src="js/jquery-1.4.2.min.js"></script>
+  <script src="js/slideshow.js"></script>
+  <script>
       $(document).ready(function(){
-          ss.initialise_slideshow();
+      ss.initialise_slideshow();
       });
-    </script>
-
+  </script>
+  
 </body>
 </html>
