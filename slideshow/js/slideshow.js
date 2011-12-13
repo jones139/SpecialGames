@@ -46,8 +46,8 @@ ss.isImg = function(nameObj) {
 //
 ss.resizeImage = function() {
     //alert("resizeImage()");
-    var width = jQuery('#photo').attr('naturalWidth');
-    var height = jQuery('#photo').attr('naturalHeight');
+    var width = jQuery('#photo').prop('naturalWidth');
+    var height = jQuery('#photo').prop('naturalHeight');
     //alert("width  "+width+", height="+height);
     var maxx = jQuery('#photoDiv').width();
     var maxy = jQuery('#photoDiv').height();
