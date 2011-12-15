@@ -1,34 +1,36 @@
 <html>
-<head>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <link rel="stylesheet" href="../css/jquery.mobile-1.0.min.css" />
     <link rel="stylesheet" href="css/photos.css" />
-</head>
-<body>
-  <div data-role="page">
-    <div data-role="header">
-      <div id="header">
-	<h1>Benjamin's Photos</h1>
-	<video id="audioPlayer" loop>
-	  <source src="sound/CountryClubRag.mp3" type="audio/mpeg" />
-	  <source src="sound/CountryClubRag.ogg" type="audio/ogg" />
-	</video>
-	<button id="pauseButton">Pause</button>
-	<button id="muteButton">Mute</button>
+  </head>
+  <body>
+    <div data-role="page">
+      <div data-role="header">
+	<div id="header">
+	  <h1>Benjamin's Photos</h1>
+	  <video id="audioPlayer" loop>
+	    <source src="sound/CountryClubRag.mp3" type="audio/mpeg" />
+	    <source src="sound/CountryClubRag.ogg" type="audio/ogg" />
+	  </video>
+	  <button id="pauseButton">Pause</button>
+	  <button id="muteButton">Mute</button>
+	</div>
+      </div>
+      <div data-role="content">
+	<div id="photoDiv">
+	  <img id="photo" src="" alt="Images will appear here">
+	</div>
       </div>
     </div>
-    <div data-role="content">
-      <div id="photoDiv">
-	<img id="photo" src="" alt="Images will appear here">
-      </div>
-    </div>
-  </div>
-<!--<script src="../js/jquery-1.4.2.min.js"></script>-->
-  <script src="../js/jquery-1.7.1.min.js"></script>
-  <script src="js/slideshow.js"></script>
-  <script>
+    <script type="text/javascript" src="../js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.mobile-1.0.min.js"></script>  
+    <script src="js/slideshow.js"></script>
+    <script>
       $(document).ready(function(){
       ss.initialise_slideshow();
       });
-  </script>
-  
-</body>
+    </script>
+    
+  </body>
 </html>
