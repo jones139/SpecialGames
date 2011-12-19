@@ -78,7 +78,7 @@ public class SnakeView extends TileView {
      * captured.
      */
     private long mScore = 0;
-    private long mMoveDelay = 600;
+    private long mMoveDelay = 100;
     /**
      * mLastMove: tracks the absolute time when the snake last moved, and is used
      * to determine if a move should be made based on mMoveDelay.
@@ -173,7 +173,7 @@ public class SnakeView extends TileView {
         addRandomApple();
         addRandomApple();
 
-        mMoveDelay = 600;
+        mMoveDelay = 200;
         mScore = 0;
     }
 
@@ -264,11 +264,53 @@ public class SnakeView extends TileView {
     @Override
 	public boolean onTouchEvent(MotionEvent msg) {
 	/*Log.d(TAG,"onTouchEvent");*/
+
+	if (mMode == READY | mMode == LOSE) {
+	    /*
+	     * At the beginning of the game, or the end of a previous one,
+	     * we should start a new game.
+	     */
+	    initNewGame();
+	    setMode(RUNNING);
+	    update();
+	    return (true);
+	}
+	
+	if (mMode == PAUSE) {
+	    /*
+	     * If the game is merely paused, we should just continue where
+	     * we left off.
+	     */
+	    setMode(RUNNING);
+	    update();
+	    return (true);
+	}
+
+
 	int action = msg.getAction();
 	if ( action == 0 ) {
 	    float x = msg.getRawX();
 	    float y = msg.getRawY();
-	    MessageBox("onTouchEvent - action="+action+", coords=("+x+","+y+")");
+	    Coordinate head = mSnakeTrail.get(0);
+
+	    float hx = xTileToScreen(head.x);
+	    float hy = yTileToScreen(head.y);
+	    //MessageBox("onTouchEvent - action="+action+", coords=("+x+","+y+"), head=("+hx+","+hy+")");
+
+	    if (mDirection == NORTH || mDirection == SOUTH) {
+		if (x > hx) {
+		    mNextDirection = EAST;
+		} else {
+		    mNextDirection = WEST;
+		}
+	    }
+	    if (mDirection == EAST || mDirection == WEST) {
+		if (y > hy) {
+		    mNextDirection = SOUTH;
+		} else {
+		    mNextDirection = NORTH;
+		}
+	    }
 	}
 	return(true);
     }
@@ -283,7 +325,7 @@ public class SnakeView extends TileView {
      */
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent msg) {
-	MessageBox("onKeyDown");
+	//MessageBox("onKeyDown");
         if (keyCode == KeyEvent.KEYCODE_DPAD_UP) {
             if (mMode == READY | mMode == LOSE) {
                 /*
@@ -495,7 +537,8 @@ public class SnakeView extends TileView {
         }
         }
 
-        // Collision detection
+        // Collision detection - switched off and replaced with wrap
+	// around code.
         // For now we have a 1-square wall around the entire arena
         /*if ((newHead.x < 1) || (newHead.y < 1) || (newHead.x > mXTileCount - 2)
                 || (newHead.y > mYTileCount - 2)) {
@@ -503,6 +546,8 @@ public class SnakeView extends TileView {
             return;
 
 	    }*/
+
+	// Wrap around the screen if we run off the edge.
 	if (newHead.x < 1) {
 	    newHead.x = mXTileCount - 2;
 	}
