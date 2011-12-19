@@ -512,7 +512,7 @@ public class SnakeView extends TileView {
 	if (newHead.y < 1) {
 	    newHead.y = mYTileCount - 2;
 	}
-	if (newHead.y > myTileCount - 2) {
+	if (newHead.y > mYTileCount - 2) {
 	    newHead.y = 1;
 	}
 
