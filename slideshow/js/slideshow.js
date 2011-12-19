@@ -5,7 +5,7 @@
 // our only global variable - all others are members of ss.
 ss = {
     'photoDir':'photos',
-    'timeout':5000
+    'timeout':10000
 };   
 
 ////////////////////////////////////////////////////////////////////////
@@ -58,9 +58,9 @@ ss.resizeImage = function() {
 	img_w = width * maxy / height;
     }
     margin = 0.5*(maxx-img_w);
-    alert("width  "+width+", height="+height+": img_w="+img_w+", img_h="+img_h);
-    //jQuery('#photo').height(img_h);
-    //jQuery('#photo').width(img_w);
+    //alert("width  "+width+", height="+height+": img_w="+img_w+", img_h="+img_h);
+    jQuery('#photo').height(img_h);
+    jQuery('#photo').width(img_w);
     //jQuery('#photo').css('margin-left:'+margin);
     // Now display the image.
     jQuery('#photo').slideDown('slow');
