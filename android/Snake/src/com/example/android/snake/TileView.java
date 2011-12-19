@@ -166,4 +166,13 @@ public class TileView extends View {
 
     }
 
+    public int xTileToScreen(int xTile) {
+	int xScreen = mXOffset + xTile * mTileSize;
+	return xScreen;
+    }
+    public int yTileToScreen(int yTile) {
+	int yScreen = mYOffset + yTile * mTileSize;
+	return yScreen;
+    }
+
 }

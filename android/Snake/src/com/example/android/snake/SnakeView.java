@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2007 The Android Open Source Project
+ *   2011 - GJ Modified to simplify game.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +30,10 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
+
+/* GJ Additions */
+import android.view.MotionEvent;
+import android.widget.Toast;
 
 /**
  * SnakeView: implementation of a simple game of Snake
@@ -144,7 +149,7 @@ public class SnakeView extends TileView {
         loadTile(RED_STAR, r.getDrawable(R.drawable.redstar));
         loadTile(YELLOW_STAR, r.getDrawable(R.drawable.yellowstar));
         loadTile(GREEN_STAR, r.getDrawable(R.drawable.greenstar));
-    	
+    	/*MessageBox("Initialised SnakeView");*/
     }
     
 
@@ -246,6 +251,27 @@ public class SnakeView extends TileView {
         mSnakeTrail = coordArrayToArrayList(icicle.getIntArray("mSnakeTrail"));
     }
 
+
+
+    public void MessageBox(String message){
+	Context context = getContext();
+	Toast toast = Toast.makeText(context,message,Toast.LENGTH_SHORT);
+	toast.show();
+    }
+    /*
+     * Touch event handler - GJ 2011.
+     */
+    @Override
+	public boolean onTouchEvent(MotionEvent msg) {
+	/*Log.d(TAG,"onTouchEvent");*/
+	int action = msg.getAction();
+	if ( action == 0 ) {
+	    float x = msg.getRawX();
+	    float y = msg.getRawY();
+	    MessageBox("onTouchEvent - action="+action+", coords=("+x+","+y+")");
+	}
+	return(true);
+    }
     /*
      * handles key events in the game. Update the direction our snake is traveling
      * based on the DPAD. Ignore events that would cause the snake to immediately
@@ -257,7 +283,7 @@ public class SnakeView extends TileView {
      */
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent msg) {
-
+	MessageBox("onKeyDown");
         if (keyCode == KeyEvent.KEYCODE_DPAD_UP) {
             if (mMode == READY | mMode == LOSE) {
                 /*
@@ -471,19 +497,31 @@ public class SnakeView extends TileView {
 
         // Collision detection
         // For now we have a 1-square wall around the entire arena
-        if ((newHead.x < 1) || (newHead.y < 1) || (newHead.x > mXTileCount - 2)
+        /*if ((newHead.x < 1) || (newHead.y < 1) || (newHead.x > mXTileCount - 2)
                 || (newHead.y > mYTileCount - 2)) {
             setMode(LOSE);
             return;
 
-        }
+	    }*/
+	if (newHead.x < 1) {
+	    newHead.x = mXTileCount - 2;
+	}
+	if (newHead.x > mXTileCount - 2) {
+	    newHead.x = 1;
+	}
+	if (newHead.y < 1) {
+	    newHead.y = mYTileCount - 2;
+	}
+	if (newHead.y > myTileCount - 2) {
+	    newHead.y = 1;
+	}
 
         // Look for collisions with itself
         int snakelength = mSnakeTrail.size();
         for (int snakeindex = 0; snakeindex < snakelength; snakeindex++) {
             Coordinate c = mSnakeTrail.get(snakeindex);
             if (c.equals(newHead)) {
-                setMode(LOSE);
+                //setMode(LOSE);
                 return;
             }
         }

@@ -1,1 +1,1 @@
-/usr/local/android-sdk-linux/samples/android-7/Snake/bin/classes.dex : \
+/home/disk2/graham/SpecialGames/android/Snake/bin/classes.dex : \

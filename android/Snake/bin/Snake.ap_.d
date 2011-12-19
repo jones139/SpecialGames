@@ -1,11 +1,11 @@
-/usr/local/android-sdk-linux/samples/android-7/Snake/bin/Snake.ap_ \
- : /usr/local/android-sdk-linux/samples/android-7/Snake/res/values/strings.xml \
-/usr/local/android-sdk-linux/samples/android-7/Snake/res/values/attrs.xml \
-/usr/local/android-sdk-linux/samples/android-7/Snake/res/drawable/greenstar.png \
-/usr/local/android-sdk-linux/samples/android-7/Snake/res/drawable/yellowstar.png \
-/usr/local/android-sdk-linux/samples/android-7/Snake/res/drawable/redstar.png \
-/usr/local/android-sdk-linux/samples/android-7/Snake/res/layout/snake_layout.xml \
-/usr/local/android-sdk-linux/samples/android-7/Snake/bin/res/drawable/greenstar.png \
-/usr/local/android-sdk-linux/samples/android-7/Snake/bin/res/drawable/yellowstar.png \
-/usr/local/android-sdk-linux/samples/android-7/Snake/bin/res/drawable/redstar.png \
-/usr/local/android-sdk-linux/samples/android-7/Snake/AndroidManifest.xml \
+/home/disk2/graham/SpecialGames/android/Snake/bin/Snake.ap_ \
+ : /home/disk2/graham/SpecialGames/android/Snake/res/drawable/yellowstar.png \
+/home/disk2/graham/SpecialGames/android/Snake/res/drawable/greenstar.png \
+/home/disk2/graham/SpecialGames/android/Snake/res/drawable/redstar.png \
+/home/disk2/graham/SpecialGames/android/Snake/res/values/strings.xml \
+/home/disk2/graham/SpecialGames/android/Snake/res/values/attrs.xml \
+/home/disk2/graham/SpecialGames/android/Snake/res/layout/snake_layout.xml \
+/home/disk2/graham/SpecialGames/android/Snake/bin/res/drawable/yellowstar.png \
+/home/disk2/graham/SpecialGames/android/Snake/bin/res/drawable/greenstar.png \
+/home/disk2/graham/SpecialGames/android/Snake/bin/res/drawable/redstar.png \
+/home/disk2/graham/SpecialGames/android/Snake/AndroidManifest.xml \

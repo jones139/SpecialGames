@@ -1,3 +1,3 @@
-/usr/local/android-sdk-linux/samples/android-7/Snake/bin/Snake-debug-unaligned.apk : \
-/usr/local/android-sdk-linux/samples/android-7/Snake/bin/Snake.ap_ \
-/usr/local/android-sdk-linux/samples/android-7/Snake/bin/classes.dex \
+/home/disk2/graham/SpecialGames/android/Snake/bin/Snake-debug-unaligned.apk : \
+/home/disk2/graham/SpecialGames/android/Snake/bin/Snake.ap_ \
+/home/disk2/graham/SpecialGames/android/Snake/bin/classes.dex \
