@@ -32,6 +32,8 @@ import android.view.View;
 import android.widget.TextView;
 
 /* GJ Additions */
+import android.media.SoundPool;
+import android.media.AudioManager;
 import android.view.MotionEvent;
 import android.widget.Toast;
 
@@ -109,6 +111,17 @@ public class SnakeView extends TileView {
      */
     private RefreshHandler mRedrawHandler = new RefreshHandler();
 
+    /**
+     * Sounds 
+     */
+    private SoundPool soundPool;
+    //private int[] soundsArr;
+    private static final int SOUND_STEP = 0;
+    private int soundstep;
+    private int soundpop;
+    private int soundyum;
+    private int soundrasp;
+
     class RefreshHandler extends Handler {
 
         @Override
@@ -149,7 +162,17 @@ public class SnakeView extends TileView {
         loadTile(RED_STAR, r.getDrawable(R.drawable.redstar));
         loadTile(YELLOW_STAR, r.getDrawable(R.drawable.yellowstar));
         loadTile(GREEN_STAR, r.getDrawable(R.drawable.greenstar));
-    	/*MessageBox("Initialised SnakeView");*/
+    	//MessageBox("Initialised SnakeView");
+
+	soundPool = new SoundPool(4,AudioManager.STREAM_MUSIC,100);
+	/*soundsArr[SOUND_STEP] = soundPool.load(getContext(),R.raw.snake1,1);*/
+	soundstep = soundPool.load(getContext(),R.raw.snake1,1);
+	soundpop = soundPool.load(getContext(),R.raw.pop,1);
+	soundyum = soundPool.load(getContext(),R.raw.yum,1);
+	soundrasp = soundPool.load(getContext(),R.raw.raspberry,1);
+	MessageBox("sountstep = "+soundstep);
+	soundPool.play(soundstep,1f,1f,1,0,1f);
+
     }
     
 
@@ -537,6 +560,9 @@ public class SnakeView extends TileView {
         }
         }
 
+	//MessageBox("soundstep="+soundstep);
+	soundPool.play(soundstep,1f,1f,1,0,1f);
+
         // Collision detection - switched off and replaced with wrap
 	// around code.
         // For now we have a 1-square wall around the entire arena
@@ -550,15 +576,20 @@ public class SnakeView extends TileView {
 	// Wrap around the screen if we run off the edge.
 	if (newHead.x < 1) {
 	    newHead.x = mXTileCount - 2;
+	    soundPool.play(soundpop,1f,1f,1,0,1f);
 	}
 	if (newHead.x > mXTileCount - 2) {
 	    newHead.x = 1;
+	    soundPool.play(soundpop,1f,1f,1,0,1f);
 	}
 	if (newHead.y < 1) {
 	    newHead.y = mYTileCount - 2;
+	    soundPool.play(soundpop,1f,1f,1,0,1f);
+
 	}
 	if (newHead.y > mYTileCount - 2) {
 	    newHead.y = 1;
+	    soundPool.play(soundpop,1f,1f,1,0,1f);	
 	}
 
         // Look for collisions with itself
@@ -567,6 +598,7 @@ public class SnakeView extends TileView {
             Coordinate c = mSnakeTrail.get(snakeindex);
             if (c.equals(newHead)) {
                 //setMode(LOSE);
+		soundPool.play(soundrasp,1f,1f,1,0,1f);	
                 return;
             }
         }
@@ -583,6 +615,7 @@ public class SnakeView extends TileView {
                 mMoveDelay *= 0.9;
 
                 growSnake = true;
+		soundPool.play(soundyum,1f,1f,1,0,1f);
             }
         }
 

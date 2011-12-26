@@ -24,18 +24,26 @@ containing a value of this type.
         public static final int yellowstar=0x7f020002;
     }
     public static final class id {
-        public static final int snake=0x7f050000;
-        public static final int text=0x7f050001;
+        public static final int snake=0x7f060000;
+        public static final int text=0x7f060001;
     }
     public static final class layout {
         public static final int snake_layout=0x7f030000;
     }
+    public static final class raw {
+        public static final int bite_tail=0x7f040000;
+        public static final int harr=0x7f040001;
+        public static final int pop=0x7f040002;
+        public static final int raspberry=0x7f040003;
+        public static final int snake1=0x7f040004;
+        public static final int yum=0x7f040005;
+    }
     public static final class string {
-        public static final int mode_lose_prefix=0x7f040002;
-        public static final int mode_lose_suffix=0x7f040003;
-        public static final int mode_pause=0x7f040001;
-        public static final int mode_ready=0x7f040000;
-        public static final int snake_layout_text_text=0x7f040004;
+        public static final int mode_lose_prefix=0x7f050002;
+        public static final int mode_lose_suffix=0x7f050003;
+        public static final int mode_pause=0x7f050001;
+        public static final int mode_ready=0x7f050000;
+        public static final int snake_layout_text_text=0x7f050004;
     }
     public static final class styleable {
         /** Attributes that can be used with a TileView.
