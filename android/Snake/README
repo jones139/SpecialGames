@@ -1,0 +1,5 @@
+This is a modified version of the Snake demo provided with the android SDK under the Apache licence (http://www.apache.org/licenses/LICENSE-2.0).
+
+The changes are:
+ - screen wraps around at the edges rather then ending game if a border is touched.
+ - responds to screen tap events to change direction.
