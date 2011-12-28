@@ -1,0 +1,14 @@
+PetsApp README
+==============
+
+This application is intended to be a very simple 3d animation of some pets
+that our Son, Benjamin likes (dogs and ducks probably).
+
+It is in a very early state of development.
+The idea is that we will make the 3d models of the animals using blender
+and export them as .OBJ files.
+The application will read the .OBJ files and animate them.
+
+This code is based on http://objloaderforand.sourceforge.net/.
+
+Graham Jones, December 2011.
