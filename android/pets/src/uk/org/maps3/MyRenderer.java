@@ -49,7 +49,7 @@ public class MyRenderer extends GLSurfaceView implements Renderer {
 		parser=new OBJParser(ctx);
 		//model=parser.parseOBJ("/sdcard/windmill.obj");
 		
-		model=parser.parseOBJ(getResources().openRawResource(R.raw.cube));
+		model=parser.parseOBJ(getResources().openRawResource(R.raw.demo));
 		Debug.stopMethodTracing();
 		this.setRenderer(this);
 		this.requestFocus();
