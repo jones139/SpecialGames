@@ -51,6 +51,7 @@ public class PetsApp extends Activity {
 	@Override
 	protected void onDestroy(){
 		Debug.stopMethodTracing();
+		super.onDestroy();
 	}
 
 }
