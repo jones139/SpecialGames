@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, PetsAppActivity!</string>
+    <string name="app_name">PetsApp</string>
+    <string name="splash_title">&quot;Benjamin's Pets&quot;</string>
+    <string name="splash_waitmsg">Loading Data - Please Wait.....</string>
+    <string name="splash_icon_description">PetsApp Icon</string>
+    <string name="mousebutton_label">Start Mouse</string>
+    <string name="main_prefsbutton_label">Edit Preferences</string>
+    <string name="main_quit_label">Exit</string>
+    <string name="main_title_text">\"Benjamin\'s Pets - Main Menu\"</string>
+    <string name="prefs_title">\"Benjamin\'s Pets - Preferences\"</string>
+    <string name="prefs_ok_text">OK</string>
+    <string name="prefs_cancel_text">Cancel</string>
+
+</resources>
