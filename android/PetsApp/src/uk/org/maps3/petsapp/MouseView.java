@@ -1,6 +1,7 @@
 package  uk.org.maps3.petsapp;
 
 import java.nio.ByteBuffer;
+import android.util.Log;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 
@@ -43,13 +44,16 @@ public class MouseView extends GLSurfaceView implements Renderer {
 	private FloatBuffer lightDiffuseBuffer;
 	private FloatBuffer lightPositionBuffer;
 
-	public MouseView(Context ctx) {
+	public MouseView(Context ctx, MouseModel mouseModel) {
 		super(ctx);
-		
-		parser=new OBJParser(ctx);
+		Log.d("MouseView","MouseView");
+		//parser=new OBJParser();
 		//model=parser.parseOBJ("/sdcard/windmill.obj");
 		
-		model=parser.parseOBJ(getResources().openRawResource(R.raw.demo));
+		//model=parser.parseOBJ(getResources().openRawResource(R.raw.demo));
+		Log.d("MouseView","walkFrames.length()="+mouseModel.walkFrames.size());
+		model = mouseModel.walkFrames.get(0);
+		Log.d("MouseView",model.toString());
 		Debug.stopMethodTracing();
 		this.setRenderer(this);
 		this.requestFocus();
@@ -109,6 +113,8 @@ public class MouseView extends GLSurfaceView implements Renderer {
 		
 		xrot += xspeed;
 		yrot += yspeed;
+		
+		//Log.d("onDrawFrame","called");
 		
 	}
 

@@ -11,6 +11,8 @@ import android.app.Activity;
  */
 public class PetsActivity extends Activity {
 
+	
+	public static MouseModel mouseModel = new MouseModel();
 	/**
 	 * 
 	 */

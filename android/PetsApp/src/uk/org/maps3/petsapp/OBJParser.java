@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Vector;
 
-import android.content.Context;
 import android.util.Log;
 
 import java.io.InputStream;
@@ -15,7 +14,6 @@ import java.io.InputStream;
 public class OBJParser {
 	int numVertices=0;
 	int numFaces=0;
-	Context context;
 
 	Vector<Short> faces=new Vector<Short>();
 	Vector<Short> vtPointer=new Vector<Short>();
@@ -26,8 +24,7 @@ public class OBJParser {
 	Vector<TDModelPart> parts=new Vector<TDModelPart>();
 	Vector<Material> materials=null;
 
-	public OBJParser(Context ctx){
-		context=ctx;
+	public OBJParser(){
 	}
     
     /**
@@ -63,7 +60,7 @@ public class OBJParser {
 		
 		try {//try to read lines of the file
 		    while((line = reader.readLine()) != null) {
-			Log.v("obj",line);
+			//Log.v("obj",line);
 			if(line.startsWith("f")){//a polygonal face
 			    processFLine(line);
 			}
@@ -118,7 +115,7 @@ public class OBJParser {
 		}
 		TDModel t=new TDModel(v,vn,vt,parts);
 		t.buildVertexBuffer();
-		Log.v("models",t.toString());
+		//Log.v("models",t.toString());
 		return t;
     }
     
