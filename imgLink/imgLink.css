@@ -1,0 +1,23 @@
+/*THUMBNAIL HOVERPOPUPS - from http://www.wickham43.net/hoverpopups.php*/
+
+.imgLink {
+    position:relative;  /* this is necessary to make position:absolute
+			   work relative to container in .imgLink span section.
+			   */
+    color:#0000ff;
+}
+
+.imgLink span { 
+    position:absolute;
+	background-color: #e5e5e5;
+	padding: 5px;
+	border: 1px solid #666;
+	visibility: hidden;
+	color: black;
+}
+
+
+.imgLink:hover span { /*CSS for enlarged image on hover*/
+	visibility: visible; 
+	left: 0px;/*position where enlarged image should offset horizontally */
+}
